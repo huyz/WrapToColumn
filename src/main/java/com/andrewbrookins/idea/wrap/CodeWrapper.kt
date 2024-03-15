@@ -25,7 +25,9 @@ class CodeWrapper(
     private val tabPlaceholder: String = "☃",
 
     // A string containing a comment or empty space is considered an indent.
-    private val indentRegex: String = "^(\\s|$tabPlaceholder)*$commentRegex\\s*($htmlSeparatorsRegex)?",
+    // huy 2024-03-14 Don't treat HTML tags for indentation.
+    //private val indentRegex: String = "^(\\s|$tabPlaceholder)*$commentRegex\\s*($htmlSeparatorsRegex)?",
+    private val indentRegex: String = "^(\\s|$tabPlaceholder)*$commentRegex\\s*",
     private val indentPattern: Pattern = Pattern.compile(indentRegex),
 
     // New lines appended to text during wrapping will use this character.
